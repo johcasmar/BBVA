@@ -11,8 +11,10 @@ pipeline {
             steps {
                 script{
                     sh ''' 
-			echo 'Pulling...' + env.BRANCH_NAME
-			checkout scm                
+			echo 'Pulling... ' + env.GIT_BRANCH
+			
+			//echo 'Pulling...' + env.BRANCH_NAME
+			//checkout scm                
 			'''
                     }
                     
