@@ -5,9 +5,11 @@ pipeline {
             steps {
                 script{
                     sh ''' 
-			                git branch
+			   _def getGitBranchName() {
+			    return scm.branches[0].name
+			}
 			               
-			                '''
+		       '''
                 }       
             }                                              
         }		 
