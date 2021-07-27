@@ -6,9 +6,7 @@ pipeline {
                 script{
                     sh (''' 
 			 git --version
-			 git branch
-			 git fetch origin
-			 git log --online
+			 git branch alt-history
 			           
 		       ''')
                 }       
