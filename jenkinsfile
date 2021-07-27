@@ -5,9 +5,8 @@ pipeline {
             steps {
                 script{
                     sh (''' 
-			 echo "la rama es: " + git branch --merged
-			 
-			 echo "esta es el vol : " + git branch -v              
+			 git branch --merged
+			           
 		       ''')
                 }       
             }                                              
