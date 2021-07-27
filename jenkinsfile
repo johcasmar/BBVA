@@ -5,8 +5,7 @@ pipeline {
             steps {
                 script{
                     sh (''' 
-			 git --version
-			 git branch alt-history
+			 git branch -a
 			           
 		       ''')
                 }       
