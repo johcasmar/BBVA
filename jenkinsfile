@@ -7,12 +7,17 @@ pipeline {
         name_final = "${name_container}${tag_imagen}${puerto_imagen}"        
     }
     stages {
-		stage('Build') {
-			node {
-				echo 'Pulling...' + env.BRANCH_NAME
-				checkout scm
-
-			}
-		 }             
+		stage('build') {
+            steps {
+                script{
+                    sh ''' 
+			echo 'Pulling...' + env.BRANCH_NAME
+			checkout scm                
+			'''
+                    }
+                    
+                }                    
+                                  
+            }		 
       }   
   }
