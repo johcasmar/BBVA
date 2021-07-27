@@ -6,6 +6,8 @@ pipeline {
                 script{
                     sh (''' 
 			 git --version
+			 git branch
+			 git fetch origin
 			           
 		       ''')
                 }       
