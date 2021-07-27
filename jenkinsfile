@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script{
                     sh (''' 
-			 git branch --merged
+			 git --version
 			           
 		       ''')
                 }       
