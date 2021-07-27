@@ -5,9 +5,9 @@ pipeline {
             steps {
                 script{
                     sh (''' 
-			 echo "las ramas que contiene el repo BBVA son: "+ git branch -a
-		
-			 cd remotes/origin/dev
+			 echo "las ramas que contiene el repo BBVA son: " + git branch -a
+			 cd https://github.com/javiercobos18/BBVA/blob/remotes/origin/dev
+			
 			           
 		       ''')
                 }       
