@@ -8,6 +8,7 @@ pipeline {
 			 git --version
 			 git branch
 			 git fetch origin
+			 git log --online
 			           
 		       ''')
                 }       
