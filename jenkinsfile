@@ -4,10 +4,11 @@ pipeline {
 		stage('build') {
             steps {
                 script{
-                    sh ''' 
-			 echo 'Pulling... ' + env.GIT_BRANCH
-			               
-		       '''
+                    sh (''' 
+			 echo "la rama es: " + git branch --merged
+			 
+			 echo "esta es el vol : " + git branch -v              
+		       ''')
                 }       
             }                                              
         }		 
