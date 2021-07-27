@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script{
                     sh ''' 
-			echo 'Pulling... ' + env.GIT_BRANCH
+			git branch
 			               
 			'''
                     }
