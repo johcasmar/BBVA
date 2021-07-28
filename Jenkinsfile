@@ -1,5 +1,7 @@
 pipeline {
-    agent { label 'master' }
+   agent {docker
+			{ image 'maven:latest'}
+           }
              environment {
                 WORKSPACE = "${WORKSPACE}" 
                 }
