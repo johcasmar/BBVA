@@ -2,8 +2,7 @@ pipeline {
        agent {
         docker {
             image 'maven:3.3-jdk-8-alpine'
-            args '-v /root/.m2:/root/.m2' && \
-               ${PWD}:/usr/src/mymaven
+            args '-v /root/.m2:/root/.m2'
             
         }
     }
