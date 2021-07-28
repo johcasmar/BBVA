@@ -1,6 +1,6 @@
 pipeline {
-     agent {
-            agent {docker{ image 'node:latest'}
+       agent {docker
+			{ image 'maven:latest'}
 				}
     stages {
         stage('Build') {
@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-       /* stage('Test') {
+        /*stage('Test') {
             steps {
                 sh 'mvn test'
             }
@@ -18,5 +18,5 @@ pipeline {
                 echo 'deploy'
             }
         }*/
-    }
-}
+      }
+    } 
