@@ -2,28 +2,27 @@ pipeline {
          agent {
              docker {
                  image 'maven:latest'
-                 args '-v /root/.m2:/root/.m2'
-             }
-		}
+           	  }
+            }
     stages {
         stage('Build') {
             steps {
                sh ('''
-					 echo ********************
-					 echo *Build*
-					 echo ********************
-					 mvn -B -DskipTests clean package
-				''')
+		  echo ********************
+		  echo *Build*
+		  echo ********************
+		  mvn -B -DskipTests clean package
+		''')
             }
         }
         stage('Test') {
             steps {
                sh ('''
-					 echo ********************
-					 echo *Desplegando el jar*
-				     echo ********************
-					 mvn test
-				''')
+		  echo ********************
+		  echo *generando los test*
+                  echo ********************
+		  mvn test
+		''')
             }
             post {
                 always {
