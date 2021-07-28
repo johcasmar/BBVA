@@ -1,19 +1,29 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
+         agent {
+             docker {
+                 image 'maven:latest'
+                 args '-v /root/.m2:/root/.m2'
+             }
+		}
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+               sh ('''
+					 echo ********************
+					 echo *Build*
+					 echo ********************
+					 mvn -B -DskipTests clean package
+				''')
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+               sh ('''
+					 echo ********************
+					 echo *Desplegando el jar*
+				     echo ********************
+					 mvn test
+				''')
             }
             post {
                 always {
@@ -21,10 +31,10 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
+      /*  stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
-        }
+        }*/
     }
 }
