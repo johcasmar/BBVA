@@ -1,14 +1,12 @@
 pipeline {
-    agent {
-         docker { image 'oracle_mvn:latest' }
-              }
+    agent { label 'master' }
              environment {
                 WORKSPACE = "${WORKSPACE}" 
                 }
     stages {
         stage('Checkout - Build') {
             steps {
-                sh ('mvn package  -DoracleHome=/u01/oracle/ -Dversion=12.2.1-0-0 ' )
+                sh ('mvn package' )
                  echo 'Construccion componente OSB..'
             }
         }
