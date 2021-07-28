@@ -1,4 +1,3 @@
-Page up
 pipeline {
     agent any
     stages {
