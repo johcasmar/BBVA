@@ -1,9 +1,15 @@
 pipeline {
-       agent any
+    agent {
+         docker { image 'oracle_mvn:latest' }
+              }
+             environment {
+                WORKSPACE = "${WORKSPACE}" 
+                }
     stages {
-        stage('Build') {
+        stage('Checkout - Build') {
             steps {
-                sh 'docker run --rm -v /root/.m2:/root/.m2 -v $PWD/java-app:/app -w /app maven:3-alpine mvn -B -DskipTests clean package'
+                sh ('mvn package  -DoracleHome=/u01/oracle/ -Dversion=12.2.1-0-0 ' )
+                 echo 'Construccion componente OSB..'
             }
         }
         /*stage('Test') {
