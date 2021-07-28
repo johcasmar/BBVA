@@ -1,39 +1,20 @@
 pipeline {
-         agent {
-             docker {
-                 image 'maven:latest'
-           	  }
-            }
+     agent any
     stages {
         stage('Build') {
             steps {
-               sh ('''
-		  echo ********************
-		  echo *Build*
-		  echo ********************
-		  mvn -B -DskipTests clean package
-		''')
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-               sh ('''
-		  echo ********************
-		  echo *generando los test*
-                  echo ********************
-		  mvn test
-		''')
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
+                sh 'mvn test'
             }
         }
-      /*  stage('Deliver') {
+        stage('Deploy') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                echo 'deploy'
             }
-        }*/
+        }
     }
 }
