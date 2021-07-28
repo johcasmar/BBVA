@@ -1,26 +1,15 @@
 pipeline {
-   agent {docker
-			{ image 'maven:latest'}
-           }
-             environment {
-                WORKSPACE = "${WORKSPACE}" 
-                }
+    agent {
+        docker {
+            image 'maven:3.8.1-adoptopenjdk-11' 
+            args '-v /root/.m2:/root/.m2' 
+        }
+    }
     stages {
-        stage('Checkout - Build') {
+        stage('Build') { 
             steps {
-                sh ('mvn package' )
-                 echo 'Construccion componente OSB..'
+                sh 'mvn -B -DskipTests clean package' 
             }
         }
-        /*stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'deploy'
-            }
-        }*/
-      }
-    } 
+    }
+}
